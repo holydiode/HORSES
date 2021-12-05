@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HORSES
+namespace HorsesComon
 {
     public class Loger
     {
@@ -30,8 +30,16 @@ namespace HORSES
                 }
             }
         }
-        public static Loger GetLoger(string file_name = null, bool clearOnCreation = true) =>
-            Loger._loger ??= new(file_name, clearOnCreation);
+        public static Loger GetLoger(string file_name = null, bool clearOnCreation = true)
+        {
+            if (Loger._loger is null)
+            {
+                Loger._loger = new Loger(file_name, clearOnCreation);
+            }
+
+            return Loger._loger;
+            
+        }
         public void Coment(string coment)
         {
             using (StreamWriter writer = new StreamWriter(this._fileName, append: true))

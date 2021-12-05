@@ -1,16 +1,34 @@
-﻿
+﻿using HorsesComon;
+using System;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace HORSES
+
+
+
+namespace CreationalPatterns
 {
-    class GameMaster: IPlayerManager{
+
+    interface IPlayerManager
+    {
+        public IPlayer CurentPlayer { get; }
+
+        public void EndTurn();
+
+        public void AddPlayer(IPlayer player);
+    }
+
+
+    public class GameMaster: IPlayerManager{
 
         private static GameMaster _istance = null;
 
-        public Player CurentPlayer => _playerManager.CurentPlayer;
+        public IPlayer CurentPlayer => _playerManager.CurentPlayer;
 
         private IPlayerManager _playerManager;
 
-        public void AddPlayer(Player player) {
+        public void AddPlayer(IPlayer player) {
             _playerManager.AddPlayer(player);
             Loger.GetLoger().Write("Игрок " + player.ID.ToString() + " Добавлен в игру");
         }
@@ -24,17 +42,11 @@ namespace HORSES
 
         private GameMaster()
         {
+            Loger.GetLoger().Write("инициализация мастера игры");
             _playerManager = new PlayerManager();
         }
 
-        public static GameMaster GetMaster()
-        {
-            if (GameMaster._istance is null)
-            {
-                GameMaster._istance = new GameMaster();
-            }
-            return GameMaster._istance;
-        }
+        public static GameMaster GetMaster() => GameMaster._istance ??= new GameMaster();
     }
 
 }
