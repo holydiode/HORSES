@@ -2,13 +2,13 @@
 
 namespace HORSES
 {
-    class GameMaster: IPlayerManager{
+    class GameMaster{
 
         private static GameMaster _istance = null;
 
         public Player CurentPlayer => _playerManager.CurentPlayer;
 
-        private IPlayerManager _playerManager;
+        private PlayerManager _playerManager;
 
         public void AddPlayer(Player player) {
             _playerManager.AddPlayer(player);

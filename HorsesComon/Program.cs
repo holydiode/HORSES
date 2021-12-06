@@ -6,7 +6,6 @@ namespace HorsesComon
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
         }
     }
 }

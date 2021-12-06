@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CreationalPatterns
+namespace HorsesComon
 {
-    public interface IChilivary : IUnit
+    public interface IArcher: IUnit
     {
+        public int Range {get;}
         public int Damage {get;}
-        public int Hack();
+        public int Shoot(int shotRange);
+
     }
 }

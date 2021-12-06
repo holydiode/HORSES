@@ -8,21 +8,17 @@ namespace CreationalPatterns
 {
     public class Unit : IUnit
     {
-        private Map _map;
-        private string _name;
-        private int _position;
+        public string Name { private set;  get; }
 
-        public string Name => _name;
+        public Map Map { private set;  get; }
 
-        public Map Map => _map;
-
-        public int Position => _position;
+        public int Position { private set;  get; }
 
         public Unit(Map map, string name)
         {
-            _name = name;
-            _map = map;
-            _position = 0;
+            Name = name;
+            Map = map;
+            Position = 0;
         }
 
         public void MoveTo(int coord)
@@ -37,14 +33,14 @@ namespace CreationalPatterns
                     Loger.GetLoger().Write(string.Format("Юнит {0} не может летать, движение прекарщенно на координатах {1}", Name, Position.ToString()));
                     return;
                 }
-                _position += 1;
+                Position += 1;
             }
             Loger.GetLoger().Write(string.Format("Юнит {0} пришел на координаты {1}", Name, coord));
         }
 
         public void Rearrange(int coord)
         {
-            _position = coord;
+            Position = coord;
         }
 
         public void MoveTo(string coord)
@@ -55,7 +51,7 @@ namespace CreationalPatterns
         public IUnit Clone()
         {
             Loger.GetLoger().Write("Создана копия юнита");
-            return new Unit(Map, Name) {_position = Position};
+            return new Unit(Map, Name) {Position = Position};
         }
     }
 }

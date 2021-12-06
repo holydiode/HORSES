@@ -9,16 +9,16 @@ namespace CreationalPatterns
 {
     class CivilizationUnitFactory : IUnitFactory
     {
-        public IArcher GetArcher(int range, int damage)
+        public IArcher GetArcher(Map map, string name, int range, int damage)
         {
             Loger.GetLoger().Write(string.Format("юнит типа {0} для игры цивилизация создан", "Лучник"));
-            return new CivilizationArcher(range, damage);
+            return new CivilizationArcher(map, name, range, damage);
         }
 
-        public IChilivary GetChilivary(int damage)
+        public IChilivary GetChilivary(Map map, string name,int damage)
         {
             Loger.GetLoger().Write(string.Format("юнит типа {0} для игры цивилизация создан", "Рыцарь"));
-            return new CivilizationChilivary(damage);
+            return new CivilizationChilivary(map, name, damage);
         }
 
 

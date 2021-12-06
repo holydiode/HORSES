@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HorsesComon;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,18 +7,22 @@ using System.Threading.Tasks;
 
 namespace CreationalPatterns
 {
-    class HeroesChiliavry : IChilivary
+    class HeroesChiliavry : Unit, IChilivary
     {
-        private int _damage;
-        public int Damage => _damage;
-        public HeroesChiliavry(int damage)
+        public int Damage { get; private set; }
+
+        public HeroesChiliavry(Map map, string name,int damage):base(map, name)
         {
-            _damage = damage;
+            Damage = damage;
         }
         public int Hack()
         {
-            Random rg = new Random();
-            return (rg.NextDouble() > 0.5) ? _damage : _damage * 2;
+            Random rg = new ();
+            return (rg.NextDouble() > 0.5) ? Damage : Damage * 2;
+        }
+        int IChilivary.Hack()
+        {
+            throw new NotImplementedException();
         }
     }
 }

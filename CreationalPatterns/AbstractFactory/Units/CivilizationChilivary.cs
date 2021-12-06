@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HorsesComon;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,19 +7,18 @@ using System.Threading.Tasks;
 
 namespace CreationalPatterns
 {
-    class CivilizationChilivary : IChilivary
+    class CivilizationChilivary : Unit, IChilivary
     {
-        private int _damage;
-        public int Damage => _damage;
+        public int Damage { private set; get; }
 
-        public CivilizationChilivary(int damage)
+        public CivilizationChilivary(Map map, string name, int damage):base(map, name)
         {
-            _damage = damage;
+            Damage = damage;
         }
 
         public int Hack()
         {
-            return _damage;
+            return Damage;
         }
     }
 }

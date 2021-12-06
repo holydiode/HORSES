@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CreationalPatterns
 {
-    public interface IArcher
+    public interface IArcher : IUnit
     {
         public int Range {get;}
         public int Damage {get;}

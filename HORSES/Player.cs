@@ -6,8 +6,6 @@ namespace HORSES
     {
         public int ID { private set; get; }
 
-        private List<IUnit> units;
-
         public Player(int id)
         {
             this.ID = id;

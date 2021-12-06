@@ -53,5 +53,30 @@ namespace BehaviorPattern
         }
 
         public static GameMaster GetMaster() => GameMaster._istance ??= new GameMaster();
+
+        public GameMasterSnapShot SaveState()
+        {
+            return new GameMasterSnapShot(_playerManager.playerQueue);
+        }
+
+        internal void LoadState(GameMasterSnapShot gameMasterSnapShot)
+        {
+            _playerManager.playerQueue.Clear();
+            foreach (IPlayer player in gameMasterSnapShot.copyPlayer)
+            {
+                AddPlayer(player);
+            }
+        }
+
+        public class GameMasterSnapShot
+        {
+            public GameMasterSnapShot(List<IPlayer> players)
+            {
+                copyPlayer = players.Select(item => item.Clone()).ToList();
+            }
+
+            internal List<IPlayer> copyPlayer;
+        }
+
     }
 }

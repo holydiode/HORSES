@@ -1,18 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace CreationalPatterns
 {
-    public interface  IPlayer
+    public interface IPlayer
     {
-        public int ID {get;}
-        public List<IUnit> Units{ get;}  
-        public Dictionary<string,int> Resourses {get;}
-        public List<IUnit> Builds {get;}
-        public IArcher GetArcher(int range, int damage);
-        public IChilivary GetChilivary(int damage);
+        public int ID { get; }
+        public List<IUnit> Units { get; }
+        public IUnitFactory UnitFactory { get;}
+        public HorsesComon.Map Map { get;}
+        public Dictionary<string, int> Resourses { get; }
+        public IPlayer Clone();
+        public IUnit ProductUnit(string unitName);
+
     }
 }

@@ -16,8 +16,9 @@ namespace BehaviorPattern.State
             _unit = unit;
         }
 
-        public void SeeEnamyBehavior()
+        public void SeeEnamyBehavior(int coord)
         {
+            _unit.MoveTo(coord);
             Loger.GetLoger().Write(string.Format("Юнит {0} будет атаковть противника" , _unit.Name));
         }
     }
@@ -30,22 +31,9 @@ namespace BehaviorPattern.State
         {
             _unit = unit;
         }
-        public void SeeEnamyBehavior()
+        public void SeeEnamyBehavior(int coord)
         {
             Loger.GetLoger().Write(string.Format("Юнит {0} будетатаковать по возможности противника", _unit.Name));
-        }
-    }
-
-    class IgnoreUnitState : IUnitState
-    {
-        private IUnit _unit;
-
-        public IgnoreUnitState(IUnit unit)
-        {
-            _unit = unit;
-        }
-        public void SeeEnamyBehavior()
-        {
         }
     }
 

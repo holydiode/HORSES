@@ -10,23 +10,16 @@ using System.Threading.Tasks;
 namespace CreationalPatterns
 {
 
-    interface IPlayerManager
-    {
-        public IPlayer CurentPlayer { get; }
-
-        public void EndTurn();
-
-        public void AddPlayer(IPlayer player);
-    }
 
 
-    public class GameMaster: IPlayerManager{
+
+    public class GameMaster{
 
         private static GameMaster _istance = null;
 
         public IPlayer CurentPlayer => _playerManager.CurentPlayer;
 
-        private IPlayerManager _playerManager;
+        private PlayerManager _playerManager;
 
         public void AddPlayer(IPlayer player) {
             _playerManager.AddPlayer(player);

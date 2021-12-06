@@ -22,10 +22,10 @@ namespace HorsesComon
 
 
 
-            FileInfo fileInfo = new FileInfo(file_name);
+            FileInfo fileInfo = new(file_name);
             if (! fileInfo.Exists || clearOnCreation)
             {
-                using (StreamWriter writer = new StreamWriter(this._fileName))
+                using (StreamWriter writer = new(this._fileName))
                 {
                 }
             }
@@ -42,14 +42,14 @@ namespace HorsesComon
         }
         public void Coment(string coment)
         {
-            using (StreamWriter writer = new StreamWriter(this._fileName, append: true))
+            using (StreamWriter writer = new (this._fileName, append: true))
             {
                 writer.WriteLine("+++" + coment + "+++");
             }
         }
         public void Write(string msg)
         {
-            using (StreamWriter writer = new StreamWriter(this._fileName, append: true)) {
+            using (StreamWriter writer = new (this._fileName, append: true)) {
                 writer.WriteLine(DateTime.Now.ToShortTimeString() + ": " + msg);
             }
         }

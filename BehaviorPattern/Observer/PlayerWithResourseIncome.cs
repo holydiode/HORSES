@@ -7,39 +7,34 @@ using System.Threading.Tasks;
 
 namespace BehaviorPattern
 {
-    class PlayerWithResourseIncome : IPlayer, IHaveTurnBehavior
+    class PlayerWithResourseIncome : Player, IHaveTurnBehavior
     {
-        private int _income_value;
+        private Dictionary<string,int> _income_value;
 
-        public PlayerWithResourseIncome(int id, int incomeValue)
+        public PlayerWithResourseIncome(int id, Dictionary<string, int> incomeValue):base(id)
         {
-            ID = id;
             _income_value = incomeValue;
+            Resourses.Clear();
+            Resourses = incomeValue.ToDictionary(entry => entry.Key, entry => entry.Value);
             Units = new();
-            Resourses = new();
-            Resourses.Add("золото", 0);
+
         }
 
-        public int ID {get;private set;}
-
-        public List<IUnit> Units { get; private set; }
-
-        public Dictionary<string, int> Resourses { get; private set; }
-
-        public IPlayer Clone()
+        public new IPlayer Clone()
         {
             return new PlayerWithResourseIncome(ID, _income_value) {
                 Resourses = Resourses.ToDictionary(entry => entry.Key, entry => entry.Value),
-                Units = Units.ToList()
+                Units = Units.Select(item => item.Clone()).ToList()
             };
         }
 
         public void EndTurnBehavior()
         {
-            Loger.GetLoger().Write("золото игрока " + ID.ToString() + " увеличилось");
-            Resourses["золото"] += _income_value;
+            foreach (string resourseName in _income_value.Keys)
+            {
+                Resourses[resourseName] += _income_value[resourseName];
+            }
+            Loger.GetLoger().Write("ресурсы" + ID.ToString() +" игрока увеличилось");
         }
     }
-
-
 }

@@ -10,21 +10,18 @@ namespace Structural_pattern
 
     public class Unit : IUnit
     {
-        private Map _map;
-        private string _name;
-        private int _position;
 
-        public string Name => _name;
+        public string Name { get; private set; }
 
-        public Map Map => _map;
+        public Map Map { get; private set; }
 
-        public int Position => _position;
+        public int Position { get; private set; }
 
         public Unit(Map map, string name)
         {
-            _name = name;
-            _map = map;
-            _position = 0;
+            Name = name;
+            Map = map;
+            Position = 0;
         }
 
         public void MoveTo(int coord)
@@ -39,14 +36,14 @@ namespace Structural_pattern
                     Loger.GetLoger().Write(string.Format("Юнит {0} не может летать, движение прекарщенно на координатах {1}", Name, Position.ToString()));
                     return;
                 }
-                _position += 1;
+                Position += 1;
             }
             Loger.GetLoger().Write(string.Format("Юнит {0} пришел на координаты {1}", Name, coord));
         }
 
         public void Rearrange(int coord)
         {
-            _position = coord;
+            Position = coord;
         }
 
         public void MoveTo(string coord)

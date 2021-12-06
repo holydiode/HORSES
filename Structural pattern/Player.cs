@@ -15,8 +15,6 @@ namespace Structural_pattern
             IsInGame = false;
         }
 
-        private List<IUnit> units;
-
         public Player(int id)
         {
             this.ID = id;

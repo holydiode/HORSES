@@ -3,24 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using HorsesComon;
 
-namespace CreationalPatterns
+namespace HorsesComon
 {
     public class Player : IPlayer
     {
-        public IUnitFactory UnitFactory { get; protected set; }
+        public int ID { get; private set; }
+
+        public List<IUnit> Units { get; protected set; }
+
+        public Dictionary<string, int> Resourses { get; protected set;}
+
+        public IUnitFactory UnitFactory { get;  protected set; }
+
+        public bool IsInGame {protected set; get; }
+
         public Map Map{ get; protected set; }
 
-        public bool IsInGame { protected set; get; }
-
-        public Player(int ID, IUnitFactory unitFactory, Map map = null)
+        public Player(int ID, IUnitFactory unitFactory)
         {
             this.ID = ID;
             Units = new();
             UnitFactory = unitFactory;
-            Map = map;
 
             Resourses = new Dictionary<string, int>();
             InitResours();
+        }
+
+        public Player(int ID, Map map ,IUnitFactory unitFactory):this(ID, unitFactory)
+        {
+            Map = map;
         }
 
         private void InitResours()
@@ -29,12 +40,6 @@ namespace CreationalPatterns
             Resourses.Add("древесина", 0); 
             Resourses.Add("руда", 0); 
         }
-
-        public int ID { get; private set; }
-
-        public List<IUnit> Units { get; protected set; }
-
-        public Dictionary<string, int> Resourses { get; protected set;}
 
         public void Lose()
         {
@@ -47,7 +52,10 @@ namespace CreationalPatterns
             return new Player(ID)
             {
                 Resourses = Resourses.ToDictionary(entry => entry.Key, entry => entry.Value),
-                Units = Units.Select(item => item.Clone()).ToList()
+                Units = Units.Select(item => item.Clone()).ToList(),
+                UnitFactory = UnitFactory,
+                IsInGame = IsInGame,
+                Map = Map
             };
         }
 
@@ -62,7 +70,8 @@ namespace CreationalPatterns
             return null;
         }
 
-        IPlayer IPlayer.Clone()
+
+        IUnit IPlayer.ProductUnit(string unitName)
         {
             throw new NotImplementedException();
         }
@@ -75,6 +84,7 @@ namespace CreationalPatterns
             Loger.GetLoger().Write("Игрок " + id.ToString() + " Создан");
         }
 
+
         public static bool operator ==(Player a, Player b)
         {
             return a.ID == b.ID;
@@ -84,5 +94,6 @@ namespace CreationalPatterns
         {
             return a.ID != b.ID;
         }
+
     }
 }

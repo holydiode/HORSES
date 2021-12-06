@@ -13,7 +13,7 @@ namespace CreationalPatterns
 
         public virtual string Name => _coreUnit.Name;
 
-        public Map Map => _coreUnit.Map;
+        public HorsesComon.Map Map => _coreUnit.Map;
 
         public int Position => _coreUnit.Position;
 

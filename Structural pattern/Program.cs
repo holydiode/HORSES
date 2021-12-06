@@ -40,7 +40,7 @@ namespace Structural_pattern
 
         private static void WraperTest()
         {
-            Map map = new Map(new List<TerainType>() {
+            Map map = new(new List<TerainType>() {
                 TerainType.Earth,
                 TerainType.Earth,
                 TerainType.Water,
@@ -73,7 +73,7 @@ namespace Structural_pattern
 
         private static void CompositeTest()
         {
-            Map map = new Map(new List<TerainType>() { TerainType.Earth, TerainType.Earth, TerainType.Earth, TerainType.Earth });
+            Map map = new(new List<TerainType>() { TerainType.Earth, TerainType.Earth, TerainType.Earth, TerainType.Earth });
             Loger.GetLoger().Coment("Создадим управляемую группу из двух юнитов");
             IUnit avangarde = new ManagableGroup(new List<IUnit> { new Unit(map, "копейщик"), new Unit(map, "рыцарь") }, "авангард");
             avangarde.MoveTo(3);
@@ -84,6 +84,9 @@ namespace Structural_pattern
 
         static void Main(string[] args)
         {
+            IteratorTest();
+            AdapterTest();
+            WraperTest();
             CompositeTest();
         }
     }

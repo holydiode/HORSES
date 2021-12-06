@@ -8,6 +8,6 @@ namespace BehaviorPattern.State
 {
     interface IUnitState
     {
-        public void SeeEnamyBehavior();
+        public void SeeEnamyBehavior(int coord);
     }
 }

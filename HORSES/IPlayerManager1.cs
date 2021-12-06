@@ -1,12 +1,15 @@
 ﻿namespace HORSES
 {
-    interface IPlayerManager
+    interface IPlayer
     {
-        public Player CurentPlayer { get;}
+        interface IPlayerManager
+        {
+            public Player CurentPlayer { get; }
 
-        public void EndTurn();
+            public void EndTurn();
 
-        public void AddPlayer(Player player); 
+            public void AddPlayer(Player player);
+        }
+
     }
-
 }

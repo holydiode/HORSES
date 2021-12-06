@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CreationalPatterns
 {
-    class HeroesArcher : IArcher
+    class HeroesArcher : Unit, IArcher
     {
         private int _range;
         private int _damage;
@@ -17,7 +17,7 @@ namespace CreationalPatterns
 
         public int Damage => _damage;
 
-        public HeroesArcher(int range, int damage, int amunition)
+        public HeroesArcher(Map map, string name,int range, int damage, int amunition):base(map, name)
         {
             _range = range;
             _damage = damage;

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace CreationalPatterns
 {
-    public class PlayerManager: IPlayerManager {
+    public class PlayerManager{
 
         protected List<IPlayer> playerQueue;
         public IPlayer CurentPlayer => playerQueue[0];

@@ -7,17 +7,16 @@ using System.Threading.Tasks;
 
 namespace CreationalPatterns
 {
-    class CivilizationArcher: IArcher
+    class CivilizationArcher: Unit, IArcher
     {
-        private int _range;
-        private int _damage;
-        public int Range => _range;
-        public int Damage => _damage;
 
-        public CivilizationArcher(int range, int damage)
+        public int Range { private set; get; }
+        public int Damage { private set; get; }
+
+        public CivilizationArcher(Map map, string name, int range, int damage):base(map,name)
         {
-            _range = range;
-            _damage = damage;
+            Range = range;
+            Damage = damage;
         }
         public int Shoot(int shotRange)
         {
