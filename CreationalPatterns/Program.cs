@@ -64,10 +64,7 @@ namespace CreationalPatterns
 
         static void Main(string[] args)
         {
-            SingtonTest();
-            FactoryMethodTest();
             PrototypeTest();
-            AbstractFactoryTest();
         }
     }
 }

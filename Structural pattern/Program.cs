@@ -84,10 +84,7 @@ namespace Structural_pattern
 
         static void Main(string[] args)
         {
-            IteratorTest();
             AdapterTest();
-            WraperTest();
-            CompositeTest();
         }
     }
 }

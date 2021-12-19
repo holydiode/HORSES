@@ -72,8 +72,6 @@ namespace BehaviorPattern
 
         static void Main(string[] args)
         {
-            MementoTest();
-            ObseverTest();
             StateTest();
         }
     }

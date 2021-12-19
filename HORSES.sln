@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Structural pattern", "Struc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HorsesComon", "HorsesComon\HorsesComon.csproj", "{BBDFB2AD-E3A0-4A46-B013-ECDF71E48D3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreationalPatterns", "CreationalPatterns\CreationalPatterns.csproj", "{A59FC5F3-EA9C-4D88-B4A6-89EB574DC9A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreationalPatterns", "CreationalPatterns\CreationalPatterns.csproj", "{A59FC5F3-EA9C-4D88-B4A6-89EB574DC9A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BehaviorPattern", "BehaviorPattern\BehaviorPattern.csproj", "{9541BF47-B14D-40FF-8BBE-9E7A9D3F46F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BehaviorPattern", "BehaviorPattern\BehaviorPattern.csproj", "{9541BF47-B14D-40FF-8BBE-9E7A9D3F46F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BehaviorPattern2", "BehaviorPattern2\BehaviorPattern2.csproj", "{81B87F57-BBE0-468F-8073-5D954823CE40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{9541BF47-B14D-40FF-8BBE-9E7A9D3F46F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9541BF47-B14D-40FF-8BBE-9E7A9D3F46F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9541BF47-B14D-40FF-8BBE-9E7A9D3F46F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81B87F57-BBE0-468F-8073-5D954823CE40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81B87F57-BBE0-468F-8073-5D954823CE40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81B87F57-BBE0-468F-8073-5D954823CE40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81B87F57-BBE0-468F-8073-5D954823CE40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
