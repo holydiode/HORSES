@@ -53,5 +53,14 @@ namespace HorsesComon
                 writer.WriteLine(DateTime.Now.ToShortTimeString() + ": " + msg);
             }
         }
+
+        public void Write(string msg, params object[] args)
+        {
+            using (StreamWriter writer = new(this._fileName, append: true))
+            {
+                writer.WriteLine(DateTime.Now.ToShortTimeString() + ": " + String.Format(msg, args));
+            }
+        }
+
     }
 }

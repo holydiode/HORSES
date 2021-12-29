@@ -6,7 +6,6 @@ namespace BehaviorPattern2
     {
         public string Name {get;}
         public IMap Map {get;}
-
         public string AcceptVisitor(IUnitVisitor visitor);
         public ComandRoster Comands { get; }
         public int Position { get;}
